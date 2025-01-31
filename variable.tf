@@ -1,19 +1,25 @@
 variable "ami_id" {
-  type = string
-  default = "ami-090252cbe067a9e58"
+    description = "The AMI ID to use for the server"
+    default = "ami-0b4f379183e5706b9"
+    type = string
 }
 
-variable "sg_ids" {
-  type = list
-  default = ["sg-052d406550420b45d"]
+variable "security_group_id" {
+    description = "The security group ID to use for the server"
+    default = ["sg-006bc654442a8a0cc"]
+    type = list(string)
 }
 
 variable "instance_type" {
-  type = string
-  default = "t3.micro"
+    description = "The instance type to use for the server"
+    default = "t3.micro"
+    type = string
 }
 
 variable "tags" {
-  type = map
-  default = {} # this means empty, so not mandatory
+    description = "The tags to apply to the server"
+    default = {
+        Name = "my-instance"
+    }
+    type = map(string)
 }
